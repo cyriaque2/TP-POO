@@ -27,6 +27,15 @@ public class Arete {
         this.b = b;
     }
 
+
+    public Noeud getA() {
+        return a;
+    }
+
+    public Noeud getB() {
+        return b;
+    }
+    
     /**
      * Retourne une représentation textuelle de l'arête.
      *

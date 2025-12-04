@@ -1,6 +1,8 @@
 package fr.univlemans.graphe;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Représente un graphe simple composé de nœuds et d'arêtes.
@@ -78,6 +80,17 @@ public class Graphe {
      */
     public void removeArete(Arete a){
         aretes.remove(a);
+    }
+
+    public List<Noeud> voisins(Noeud n) {
+        List<Noeud> v = new ArrayList<>();
+        for (Arete a : aretes) {
+            if (a.getA().equals(n))
+                v.add(a.getB());
+            else if (!oriente && a.getB().equals(n))
+                v.add(a.getA());
+        }
+        return v;
     }
 
     /**
