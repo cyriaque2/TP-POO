@@ -52,7 +52,7 @@ public class Arete {
      *
      * @return le premier nœud (a)
      */
-    public Noeud getA() {
+    public Noeud getSource() {
         return a;
     }
 
@@ -61,7 +61,7 @@ public class Arete {
      *
      * @return le deuxième nœud (b)
      */
-    public Noeud getB() {
+    public Noeud getTarget() {
         return b;
     }
     

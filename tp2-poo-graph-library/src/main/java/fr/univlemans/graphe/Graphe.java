@@ -1,8 +1,10 @@
 package fr.univlemans.graphe;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Représente un graphe simple composé de nœuds et d'arêtes.
@@ -157,10 +159,10 @@ public class Graphe {
     public List<Noeud> voisins(Noeud n) {
         List<Noeud> v = new ArrayList<>();
         for (Arete a : aretes) {
-            if (a.getA().equals(n))
-                v.add(a.getB());
-            else if (!oriente && a.getB().equals(n))
-                v.add(a.getA());
+            if (a.getSource().equals(n))
+                v.add(a.getTarget());
+            else if (!oriente && a.getTarget().equals(n))
+                v.add(a.getSource());
         }
         return v;
     }
@@ -185,6 +187,23 @@ public class Graphe {
             res += a+"\n ";
         }
         return res;
+    }
+    public List<Noeud> getNoeuds() {
+        return noeuds;
+    }
+
+    public List<Arete> getEdges(Noeud noeud) {
+    List<Arete> result = new ArrayList<>();
+    for (Arete a : aretes) {
+        if (a.getSource().equals(noeud) || a.getTarget().equals(noeud)) {
+            result.add(a);
+        }
+    }
+    return result;
+}
+
+    public Set<Noeud> getNodes() {
+        return new HashSet<>(noeuds);
     }
 
 }
